@@ -1,0 +1,29 @@
+---
+title: ''
+author: "H.W Liu"
+date: "2015年5月18日"
+output: html_document
+---
+
+##Objective##
+Independent tidy data set with the average of each variable for each activity and each subject(A dataframe with all variables observing the tidy data rule)  
+
+
+
+
+##What we have ##
+1. training set and test set with subject labels and activity labels  
+2. the feature names which is uesd to describe the variables  
+3. the activity names which is used to describe the activities  
+
+
+
+##What i have done##
+1. Combine the training data(7352 by 563) and test data(2947 by 563), the raw data has 561 variables and i `add two columns to the raw data` which is subject label and activity label.  
+2. From the features.txt, we can get the variable names for 561 varibles, along with subject label and activity label which i added, we can `use colnames function to give the variable names`.    
+3. Now, we've got the "standard" raw data. To filter the columns we need(specified with "mean " or "std"), so i `use grep function to match the names` we need and get out of the useless columns.   
+4. To describe the activities, we need to tranform the number labels(from 1 to 6) into the describtive factors, so i `use the previous names to replace the number labels, which makes it more intuitive`.  
+5. After the above four steps, i've got the sub_stanard data, and we are close to our objective. Then i `used the groupby function to group the data according to the activity and subject, and use summarize each function to summarize the data`.  
+6. With the final data(180 by 81), saving it as pureData.txt. So, if you want to read the data, just using command `read.table(file = "./pureData.txt", header = TRUE)`
+
+
